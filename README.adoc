@@ -4,7 +4,7 @@
 
 Se pretende encontrar un camino de salida en un laberinto. Vamos a suponer que el laberinto es un recinto rectangular dividido en cuadrados, estando cada cuadrado ocupado o bien por un obstáculo (se representa con el carácter `#`) o bien libre (carácter `.`).
 
-El perímetro del rectángulo está ocupado por obstáculos, excepto en una o más salidas. Se pretende buscar solamente una salida en el caso de que la hubiera. La siguiente figura recoge un ejemplo de laberinto:
+El perímetro del rectángulo está ocupado por obstáculos, excepto en una o más salidas. Se pretende buscar solamente una salida en el caso de que la hubiera. La siguiente figura recoge un ejemplo de laberinto:
 
 [.text-center]
 .Ejemplo de laberito
