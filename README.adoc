@@ -1,0 +1,96 @@
+= Reto 01: Laberinto
+
+== Enunciado
+
+Se pretende encontrar un camino de salida en un laberinto. Vamos a suponer que el laberinto es un recinto rectangular dividido en cuadrados, estando cada cuadrado ocupado o bien por un obstáculo (se representa con el carácter `#`) o bien libre (carácter `.`).
+
+El perímetro del rectángulo está ocupado por obstáculos, excepto en una o más salidas. Se pretende buscar solamente una salida en el caso de que la hubiera. La siguiente figura recoge un ejemplo de laberinto:
+
+[.text-center]
+.Ejemplo de laberito
+----
+  0 1 2 3 4 5 6 7 8 9 10
+0 # # # # # # # # # # #
+1 # . . # # # . . . # #
+2 # # . . . # . # # . #
+3 # . . # . # . # . . #
+4 # # # . . . . # # # #
+5 # . . . # # # . . . #
+6 # . # . . . . . # . #
+7 # # # # # # # # # . #
+----
+
+Comenzamos en algún lugar dentro del laberinto (que no sea un obstáculo, es decir, no se puede comenzar en un cuadrado que contenga el carácter `#` ), y tenemos que encontrar un camino hasta la salida. Desde una posición del laberinto, podemos movernos a las casillas situadas arriba, abajo, a la izquierda o a la derecha, pero siempre que dicha casilla no esté ocupada por un obstáculo.
+
+Podemos representar el laberinto mediante una matriz bidimensional de tipo `char`. El carácter `*` marca cada posición que está en el camino desde el punto indicado como comienzo hasta la salida.
+
+Como resultado de la ejecución, el programa mostrará el camino de salida del laberinto (si lo hubiese) y también las rutas sin salida que se han seguido durante la búsqueda. A continuación se muestra la salida obtenida cuando el cuadrado de comienzo es `(1,1)`.
+
+[WARNING]
+A partir de un determinado punto de comienzo, puede ser que no exista ruta de salida. En el ejemplo de arriba, si el cuadrado de comienzo es el `(2, 9)`.
+
+== Entrada
+
+Como entrada el programa recibirá los siguienres argumentos:
+
+. Nombre del fichero donde se encuentra el laberinto.
+. Coordenada `x` (horizontal) del laberinto.
+. Coordenada `y` (vertical) del laberinto.
+
+El programa debe llamarse `reto01` y debe poder ejecutarse desde la consola.
+
+.Ejemplo de llamada
+----
+./reto01 laberinto01 1 1
+----
+
+
+El fichero se encuentra en texto plano. Por ejemplo el contenido puede ser el siguiente.
+
+[.text-center]
+.Fichero: `laberinto`
+----
+###########
+#..###...##
+##...#.##.#
+#..#.#.#..#
+###....####
+#...###...#
+#.#.....#.#
+#########.#
+----
+
+== Salida
+
+En caso de que el laberinto no pueda ser resuelto devolverá por *salida de errores* (`stderr`) el siguiente mensaje:
+
+----
+Error: No se puede resolver el laberinto
+----
+
+Si la resolución ha sido correcta, el programa no debe devolver nada por *salida estandar* (`stdout`). Debe volcar a un fichero de texto plano llamado igual que el fichero de entrada pero terminado en `_resuelto`.
+
+En el caso del laberinto del ejemplo anterior, el fichero deberá contener lo siguiente:
+
+[.text-center]
+.Fichero: `laberinto_resuelto`
+----
+###########
+#**###...##
+##***#.##.#
+#..#*#.#..#
+###**..####
+#..*###***#
+#.#*****#*#
+#########*#
+----
+
+== Evaluación
+
+A la hora de evaluar el programa se aplicarán las siguientes reglas:
+
+* Si el programa resuelve correctamente todos los laberintos: *+10 puntos*
+* Cada prueba que no pase el programa: *-1 punto*
+* Por cada _memory leak_: *-0.5 puntos*
+
+La nota máxima es *10* y no hay nota mínima.
